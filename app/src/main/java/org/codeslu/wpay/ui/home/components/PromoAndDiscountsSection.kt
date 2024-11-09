@@ -69,7 +69,12 @@ fun PromoAndDiscountsSection(
             pageSpacing = 16.dp
         ) { page ->
             val promo = promos[page]
-            PromoItem(bannerImageLink = promo.bannerImageLink, discountPercentage = promo.discountPercentage, title = promo.title, description = promo.description)
+            PromoItem(
+                hasDiscount = promo.hasDiscount,
+                discountPercentage = promo.discountPercentage,
+                title = promo.title,
+                description = promo.description
+            )
         }
         if (promos.size > 1) {
             DotsIndicator(
@@ -93,13 +98,12 @@ private fun PromoSectionPreview() {
             Promo(
                 title = "Black Friday deal",
                 description = "Get discount for every topup, transfer and payment\"",
-                bannerImageLink = "",
+                hasDiscount = true,
                 discountPercentage = 30
             ),
             Promo(
                 title = "Special Offer for Today’s Top Up",
                 description = "Get discount for every top up, transfer and payment",
-                bannerImageLink = "",
                 discountPercentage = 0
             )
         )) {

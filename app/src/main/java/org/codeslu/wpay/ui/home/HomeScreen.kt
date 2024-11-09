@@ -152,7 +152,6 @@ private fun HomeScreenContent(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 onOptionClicked = { res -> onAction(HomeUiAction.OnOptionClicked(res)) }
             )
-            //promo and discount section
             PromoAndDiscountsSection(
                 promos = promos,
                 onSeeMoreClicked = { onAction(HomeUiAction.OnSeeMoreClicked) }
@@ -173,14 +172,12 @@ private fun HomeScreenContentPreview() {
                 Promo(
                     title = "Black Friday deal",
                     description = "Get discount for every topup, transfer and payment\"",
-                    bannerImageLink = "",
+                    hasDiscount = true,
                     discountPercentage = 30
                 ),
                 Promo(
                     title = "Special Offer for Today’s Top Up",
                     description = "Get discount for every top up, transfer and payment",
-                    bannerImageLink = "",
-                    discountPercentage = 0
                 )
             )
         )
