@@ -21,4 +21,5 @@
     <string name="discount_percentage">%1$d%% OFF</string>
     <string name="see_more">See More</string>
     <string name="promo_discount"><![CDATA[Promo & Discount]]></string>
+    <string name="mark_as_read">Mark as read</string>
 </resources>
