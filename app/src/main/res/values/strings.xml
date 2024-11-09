@@ -22,4 +22,14 @@
     <string name="see_more">See More</string>
     <string name="promo_discount"><![CDATA[Promo & Discount]]></string>
     <string name="mark_as_read">Mark as read</string>
+    <string name="statistics">Statistics</string>
+    <string name="notifications">Notifications</string>
+    <string name="expense">Expense</string>
+    <string name="expenses">Expenses</string>
+    <string name="income">Income</string>
+    <string name="weekly">Weekly</string>
+    <string name="monthly">Monthly</string>
+    <string name="category_chart">Category Chart</string>
+    <string name="last_7_days_expenses">Last 7 days expenses</string>
+    <string name="recent_expenses">Recent Expenses</string>
 </resources>
