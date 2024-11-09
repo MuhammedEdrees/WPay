@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">WPay</string>
+    <string name="app_logo">App Logo</string>
+    <string name="hello_first_name">Hello %1$s,</string>
+    <string name="your_available_balance">Your available balance</string>
+    <string name="transfer">Transfer</string>
+    <string name="top_up">Top Up</string>
+    <string name="history">History</string>
+    <string name="service_icon">Service Icon</string>
+    <string name="service_description">%1$s service</string>
+    <string name="electricity">Electricity</string>
+    <string name="internet">Internet</string>
+    <string name="voucher">Voucher</string>
+    <string name="assurance">Assurance</string>
+    <string name="merchant">Merchant</string>
+    <string name="mobile_credit">Mobile Credit</string>
+    <string name="bill">Bill</string>
+    <string name="more">More</string>
+    <string name="payment_list">Payment List</string>
+    <string name="title_option">%1$s option</string>
+    <string name="discount_percentage">%1$d%% OFF</string>
+    <string name="see_more">See More</string>
+    <string name="promo_discount"><![CDATA[Promo & Discount]]></string>
 </resources>
