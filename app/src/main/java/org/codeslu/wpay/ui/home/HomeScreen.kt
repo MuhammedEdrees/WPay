@@ -1,6 +1,5 @@
 package org.codeslu.wpay.ui.home
 
-import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -8,11 +7,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -35,6 +32,7 @@ import org.codeslu.wpay.data.model.Promo
 import org.codeslu.wpay.ui.home.components.PaymentListSection
 import org.codeslu.wpay.ui.home.components.PromoAndDiscountsSection
 import org.codeslu.wpay.ui.home.components.UserBalanceSection
+import org.codeslu.wpay.ui.notifications.components.OutlinedTopBarIcon
 import org.codeslu.wpay.ui.theme.WPayTheme
 import org.koin.androidx.compose.koinViewModel
 
@@ -117,12 +115,7 @@ private fun HomeScreenContent(
                     )
                 },
                 actions = {
-                    OutlinedIconButton(
-                        onClick = { onAction(HomeUiAction.OnSettingsClicked) },
-                        shape = RoundedCornerShape(12.dp),
-                        border = BorderStroke(width = 2.dp, color = Color.Black.copy(alpha = 0.1f)),
-                        modifier = Modifier.size(40.dp)
-                    ) {
+                    OutlinedTopBarIcon(onClick = { onAction(HomeUiAction.OnSettingsClicked) }) {
                         Icon(
                             painter = painterResource(id = R.drawable.ic_settings),
                             contentDescription = "Settings",
