@@ -10,11 +10,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButtonDefaults
 import androidx.compose.material3.OutlinedIconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
@@ -48,7 +45,7 @@ fun HomeScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     val context = androidx.compose.ui.platform.LocalContext.current
-    var snackbarMessage by remember{
+    var snackbarMessage by remember {
         mutableStateOf("")
     }
     HomeScreenContent(
@@ -58,22 +55,27 @@ fun HomeScreen(
         promos = state.promos,
         snackbarMessage = snackbarMessage,
         onAction = { action ->
-            when(action){
+            when (action) {
                 HomeUiAction.OnSettingsClicked -> {
                     snackbarMessage = "Settings clicked"
                 }
+
                 HomeUiAction.OnHistoryClicked -> {
                     snackbarMessage = "History clicked"
                 }
+
                 is HomeUiAction.OnOptionClicked -> {
                     snackbarMessage = "${context.getString(action.optionTitleRes)} clicked"
                 }
+
                 HomeUiAction.OnSeeMoreClicked -> {
                     snackbarMessage = "See more clicked"
                 }
+
                 HomeUiAction.OnTopUpClicked -> {
                     snackbarMessage = "Top Up clicked"
                 }
+
                 HomeUiAction.OnTransferClicked -> {
                     snackbarMessage = "Transfer clicked"
                 }
@@ -93,8 +95,8 @@ private fun HomeScreenContent(
     onAction: (HomeUiAction) -> Unit = {},
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
-    LaunchedEffect (snackbarMessage){
-        if(snackbarMessage.isNotBlank()){
+    LaunchedEffect(snackbarMessage) {
+        if (snackbarMessage.isNotBlank()) {
             snackbarHostState.showSnackbar(snackbarMessage)
         }
     }
@@ -116,7 +118,7 @@ private fun HomeScreenContent(
                 },
                 actions = {
                     OutlinedIconButton(
-                        onClick = { onAction(HomeUiAction.OnSettingsClicked)},
+                        onClick = { onAction(HomeUiAction.OnSettingsClicked) },
                         shape = RoundedCornerShape(12.dp),
                         border = BorderStroke(width = 2.dp, color = Color.Black.copy(alpha = 0.1f)),
                         modifier = Modifier.size(40.dp)
@@ -146,7 +148,7 @@ private fun HomeScreenContent(
                 onTopUpClicked = { onAction(HomeUiAction.OnTopUpClicked) },
                 onHistoryClicked = { onAction(HomeUiAction.OnHistoryClicked) }
             )
-            PaymentListSection (
+            PaymentListSection(
                 modifier = Modifier.padding(horizontal = 16.dp),
                 onOptionClicked = { res -> onAction(HomeUiAction.OnOptionClicked(res)) }
             )
