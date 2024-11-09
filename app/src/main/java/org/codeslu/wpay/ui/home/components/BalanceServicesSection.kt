@@ -28,8 +28,8 @@ fun BalanceServicesSection(
             .fillMaxWidth()
             .height(84.dp),
         shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.secondary,
-        contentColor = MaterialTheme.colorScheme.onSecondary
+        color = MaterialTheme.colorScheme.primary,
+        contentColor = MaterialTheme.colorScheme.onPrimary
     ) {
         Row(
             modifier = Modifier.fillMaxSize(),

@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxScope
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
@@ -19,7 +17,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.rotate
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -28,6 +25,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.orange1Light
 
 @Composable
 fun PromoItem(
@@ -94,12 +92,12 @@ fun PromoItem(
 private fun PromoItemBackground(
     modifier: Modifier = Modifier,
     hasDiscount: Boolean
-){
+) {
     Box(
         modifier = modifier
-        .size(width = 318.dp, height = 170.dp)
-    ){
-        if(hasDiscount){
+            .size(width = 318.dp, height = 170.dp)
+    ) {
+        if (hasDiscount) {
             PromoWithDiscountBackground()
         } else {
             PromoWithoutDiscountBackground()
@@ -112,7 +110,9 @@ private fun BoxScope.PromoWithDiscountBackground() {
     val rectangleColor = MaterialTheme.colorScheme.primary
     val circleColor = MaterialTheme.colorScheme.tertiary
     Canvas(
-        modifier = Modifier.fillMaxSize().align(Alignment.BottomEnd)
+        modifier = Modifier
+            .fillMaxSize()
+            .align(Alignment.BottomEnd)
     ) {
         rotate(degrees = -30f) {
             drawRoundRect(
@@ -131,13 +131,15 @@ private fun BoxScope.PromoWithDiscountBackground() {
 }
 
 @Composable
-private fun BoxScope.PromoWithoutDiscountBackground(){
+private fun BoxScope.PromoWithoutDiscountBackground() {
     val topRectangleColor = MaterialTheme.colorScheme.secondary
     val bottomRectangleColor = MaterialTheme.colorScheme.primary
     val arcColor = MaterialTheme.colorScheme.onPrimary
-    val capsuleColor = MaterialTheme.colorScheme.inversePrimary
+    val capsuleColor = orange1Light
     Canvas(
-        modifier = Modifier.fillMaxSize().align(Alignment.BottomEnd)
+        modifier = Modifier
+            .fillMaxSize()
+            .align(Alignment.BottomEnd)
     ) {
         rotate(degrees = -30f) {
             drawRoundRect(
