@@ -6,6 +6,7 @@ import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
@@ -16,6 +17,7 @@ import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
@@ -34,9 +36,9 @@ fun BottomNavigationBar(
         enter = slideInVertically(initialOffsetY = { it }),
         exit = slideOutVertically(targetOffsetY = { it }),
     ) {
-
         BottomAppBar(
-            modifier = modifier,
+            modifier = modifier
+                .clip(RoundedCornerShape(16.dp)),
             floatingActionButton = {
                 FloatingActionButton(
                     modifier = Modifier.size(56.dp),
