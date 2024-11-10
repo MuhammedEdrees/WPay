@@ -15,4 +15,8 @@ sealed interface Route {
     data object ScanToPayScreenRoute : Route
     @Serializable
     data object SummaryTransactionScreenRoute : Route
+    @Serializable
+    data object ConfirmPasswordScreenRoute : Route
+    @Serializable
+    data object PaymentReceiptScreenRoute : Route
 }
