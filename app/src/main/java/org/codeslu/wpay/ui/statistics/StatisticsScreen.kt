@@ -19,6 +19,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -36,6 +37,7 @@ import org.codeslu.wpay.ui.statistics.components.IncomeAndExpensesChartSection
 import org.codeslu.wpay.ui.statistics.components.RecentExpensesSection
 import org.codeslu.wpay.ui.statistics.components.SegmentedBar
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.codeslu.wpay.ui.util.DummyValues.barChartData
 import org.codeslu.wpay.ui.util.DummyValues.pieChartData
 import org.codeslu.wpay.ui.util.DummyValues.recentExpenses
@@ -80,6 +82,8 @@ private fun StatisticsScreenContent(
 ) {
     Scaffold(
         modifier = modifier.fillMaxSize(),
+        containerColor = Color.Transparent,
+        contentColor = onBackgroundLight,
         topBar = {
             CenterAlignedTopAppBar(
                 modifier = Modifier
