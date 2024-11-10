@@ -1,5 +1,9 @@
 package org.codeslu.wpay.app.navigation
 
+import androidx.compose.animation.core.LinearEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -8,6 +12,7 @@ import androidx.navigation.compose.composable
 import org.codeslu.wpay.ui.confirmpassword.ConfirmPasswordScreen
 import org.codeslu.wpay.ui.home.HomeScreen
 import org.codeslu.wpay.ui.notifications.NotificationsScreen
+import org.codeslu.wpay.ui.paymentreceipt.PaymentReceiptScreen
 import org.codeslu.wpay.ui.scantopay.ScanToPayScreen
 import org.codeslu.wpay.ui.statistics.StatisticsScreen
 import org.codeslu.wpay.ui.summarytransaction.SummaryTransactionScreen
@@ -21,7 +26,21 @@ fun NavigationHost(
     NavHost(
         modifier = modifier,
         navController = navController,
-        startDestination = Route.HomeScreenRoute
+        startDestination = Route.HomeScreenRoute,
+        enterTransition = {
+            fadeIn(
+                animationSpec = tween(
+                    500, easing = LinearEasing
+                )
+            )
+        },
+        exitTransition = {
+            fadeOut(
+                animationSpec = tween(
+                    500, easing = LinearEasing
+                )
+            )
+        }
     ) {
         composable<Route.HomeScreenRoute> {
             onChangeBottomBarVisibility(true)
@@ -64,6 +83,22 @@ fun NavigationHost(
         }
         composable<Route.PaymentReceiptScreenRoute> {
             onChangeBottomBarVisibility(false)
+            PaymentReceiptScreen(
+                onDoneClicked = {
+                    navController.navigate(Route.HomeScreenRoute) {
+                        popUpTo<Route.PaymentReceiptScreenRoute> {
+                            inclusive = true
+                        }
+                    }
+                },
+                onPayAgainClicked = {
+                    navController.navigate(Route.ScanToPayScreenRoute) {
+                        popUpTo<Route.PaymentReceiptScreenRoute> {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
     }
 }

@@ -81,13 +81,13 @@ object DummyValues {
     val recentExpenses = listOf(
         Expense(
             title = "Starbucks Coffee",
-            value = 156.0,
+            amount = 156.0,
             iconRes = R.drawable.ic_starbucks,
             backgroundColor = onPrimaryContainerLight,
         ),
         Expense(
             title = "Netflix Subscription",
-            value = 87.0,
+            amount = 87.0,
             iconRes = R.drawable.ic_netflix,
             backgroundColor = Color(0xFF030319),
         ),
