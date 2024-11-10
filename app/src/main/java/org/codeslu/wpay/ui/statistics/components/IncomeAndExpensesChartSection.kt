@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
@@ -35,6 +36,9 @@ import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.BarChartData
 import org.codeslu.wpay.ui.statistics.ChartRange
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.notificationHeaderColor
+import org.codeslu.wpay.ui.theme.onBackgroundLight
+import org.codeslu.wpay.ui.theme.segmentedBarBackground
 
 @Composable
 fun IncomeAndExpensesChartSection(
@@ -81,8 +85,14 @@ private fun ChartRangeDropDownMenu(
         modifier = modifier.size(width = 91.dp, height = 28.dp)
     ) {
         FilledTonalButton(
-            modifier = Modifier.size(width = 91.dp, height = 28.dp).menuAnchor(),
+            modifier = Modifier
+                .size(width = 91.dp, height = 28.dp)
+                .menuAnchor(),
             contentPadding = PaddingValues(horizontal = 8.dp),
+            colors = ButtonDefaults.filledTonalButtonColors(
+                containerColor = segmentedBarBackground,
+                contentColor = onBackgroundLight
+            ),
             onClick = { isDropDownMenuExpanded = true }) {
             Text(
                 text = stringResource(id = selectedRange.displayTitleRes),
@@ -93,6 +103,7 @@ private fun ChartRangeDropDownMenu(
             Icon(
                 imageVector = Icons.Default.KeyboardArrowDown,
                 contentDescription = null,
+                tint = notificationHeaderColor,
                 modifier = Modifier
                     .size(16.dp)
                     .padding(start = 4.dp)

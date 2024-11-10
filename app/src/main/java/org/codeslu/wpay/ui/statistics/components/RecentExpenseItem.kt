@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.Expense
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.notificationHeaderColor
 import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
 import org.codeslu.wpay.ui.theme.outlineLight
 import org.codeslu.wpay.ui.util.LocalDateTimeUtil.formatLocalDateTime
@@ -66,12 +67,12 @@ fun RecentExpenseItem(
                 style = MaterialTheme.typography.bodySmall,
                 fontSize = 12.sp,
                 lineHeight = 16.sp,
-                color = outlineLight.copy(alpha = 0.7f)
+                color = notificationHeaderColor
             )
 
         }
         Text(
-            text = recentExpense.value.formatMoney(isExpense = true, padding = 2),
+            text = recentExpense.amount.formatMoney(isExpense = true, padding = 2),
             style = MaterialTheme.typography.bodyMedium,
             fontSize = 16.sp,
             fontWeight = FontWeight.Bold,
@@ -86,7 +87,7 @@ private fun RecentExpenseItemPreview() {
     WPayTheme {
         val item = Expense(
             title = "Starbucks Coffee",
-            value = 156.0,
+            amount = 156.0,
             iconRes = R.drawable.ic_starbucks,
             backgroundColor = onPrimaryContainerLight,
         )

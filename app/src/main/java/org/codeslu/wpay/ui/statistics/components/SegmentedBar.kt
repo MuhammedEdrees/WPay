@@ -26,6 +26,8 @@ import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.ui.theme.WPayTheme
 import org.codeslu.wpay.ui.theme.backgroundLight
+import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
+import org.codeslu.wpay.ui.theme.onSecondaryLight
 import org.codeslu.wpay.ui.theme.outlineVariantLight
 import org.codeslu.wpay.ui.theme.primaryLight
 import org.codeslu.wpay.ui.theme.segmentedBarBackground
@@ -87,8 +89,8 @@ fun SegmentButton(
                 Button(
                     modifier = Modifier.fillMaxWidth(),
                     colors = ButtonDefaults.buttonColors(
-                        contentColor = primaryLight,
-                        containerColor = backgroundLight
+                        contentColor = onPrimaryContainerLight,
+                        containerColor = onSecondaryLight
                     ),
                     onClick = { onClick() }) {
                     Text(

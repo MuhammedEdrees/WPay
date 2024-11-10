@@ -4,12 +4,16 @@ import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.ime
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.BottomAppBar
@@ -46,60 +50,50 @@ fun BottomNavigationBar(
     ) {
         BottomAppBar(
             modifier = modifier
-                .heightIn(max = 70.dp),
+                .height(70.dp),
             containerColor = surfaceLight,
             tonalElevation = 0.dp,
             windowInsets = WindowInsets.ime.only(WindowInsetsSides.Bottom),
-            floatingActionButton = {
-                FloatingActionButton(
-                    modifier = Modifier.size(56.dp),
-                    onClick = {
-                        val route = if(currentRoute == Route.ScanToPayScreenRoute::class.qualifiedName) {
-                            Route.SummaryTransactionScreenRoute
-                        } else {
-                            Route.ScanToPayScreenRoute
-                        }
-                        onNavigate(route) },
-                    shape = CircleShape,
-                    containerColor = orange1Light
-                ) {
-                    Icon(
-                        painter = painterResource(id = R.drawable.ic_scan),
-                        contentDescription = null,
-                        tint = Color.Unspecified
-                    )
-                }
-            },
             actions = {
                 BottomNavigation.entries.forEach { navigationItem ->
                     val isSelected by remember(currentRoute) {
                         derivedStateOf { currentRoute == navigationItem.route::class.qualifiedName }
                     }
-                    NavigationBarItem(
-                        colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
-                        selected = isSelected,
-                        alwaysShowLabel = false,
-                        icon = {
-                            if (isSelected) {
-                                Icon(
-                                    painter = painterResource(id = navigationItem.selectedIcon),
-                                    contentDescription = null,
-                                    tint = Color.Unspecified,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            } else {
-                                Icon(
-                                    painter = painterResource(id = navigationItem.unselectedIcon),
-                                    contentDescription = null,
-                                    tint = Color.Unspecified,
-                                    modifier = Modifier.size(24.dp)
-                                )
-                            }
-                        },
-                        onClick = {
-                            onNavigate(navigationItem.route)
-                        },
-                    )
+                    if(navigationItem == BottomNavigation.Empty){
+                        Spacer(
+                            modifier = Modifier
+                                .width(50.dp)
+                                .fillMaxHeight()
+                        )
+                    } else {
+                        NavigationBarItem(
+                            colors = NavigationBarItemDefaults.colors(indicatorColor = Color.Transparent),
+                            selected = isSelected,
+                            alwaysShowLabel = false,
+                            icon = {
+                                if (isSelected) {
+                                    Icon(
+                                        painter = painterResource(id = navigationItem.selectedIcon),
+                                        contentDescription = null,
+                                        tint = Color.Unspecified,
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                } else {
+                                    Icon(
+                                        painter = painterResource(id = navigationItem.unselectedIcon),
+                                        contentDescription = null,
+                                        tint = Color.Unspecified,
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                }
+                            },
+                            onClick = {
+                                if(!isSelected){
+                                    onNavigate(navigationItem.route)
+                                }
+                            },
+                        )
+                    }
                 }
             }
         )
@@ -118,6 +112,11 @@ enum class BottomNavigation(
         selectedIcon = R.drawable.ic_stats_filled,
         unselectedIcon = R.drawable.ic_stats_outlined,
         route = Route.StatisticsScreenRoute
+    ),
+    Empty(
+        selectedIcon = 0,
+        unselectedIcon = 0,
+        route = Route.EmptyRoute
     ),
     Notifications(
         selectedIcon = R.drawable.ic_notification_filled,

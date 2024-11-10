@@ -34,7 +34,6 @@ fun CircularPieChart(
     Canvas(
         modifier = modifier
             .size(size)
-            .background(MaterialTheme.colorScheme.background)
             .padding(12.dp),
         onDraw = {
             var startAngle = 0f
@@ -65,7 +64,7 @@ private fun CircularPieChartPreview() {
         CircularPieChart(
             modifier = Modifier.padding(16.dp),
             charts = pieChartData.entries,
-            totalValue = 600.0
+            totalValue = 312.0
         )
     }
 }

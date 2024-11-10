@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
+import org.codeslu.wpay.ui.theme.surfaceContainerLowLight
 
 @Composable
 fun PaymentOptionItem(
@@ -42,7 +43,7 @@ fun PaymentOptionItem(
             tint = Color.Unspecified,
             modifier = Modifier
                 .size(56.dp)
-                .background(MaterialTheme.colorScheme.surfaceVariant, RoundedCornerShape(16.dp))
+                .background(surfaceContainerLowLight, RoundedCornerShape(16.dp))
                 .padding(16.dp)
         )
         Text(

@@ -16,6 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.notificationHeaderColor
+import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.codeslu.wpay.ui.util.StringUtils.formatMoney
 
 @Composable
@@ -67,7 +69,7 @@ private fun NameAndBalanceSection(
             Text(
                 text = stringResource(R.string.your_available_balance),
                 style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.onBackground.copy(alpha = 0.4f),
+                color = notificationHeaderColor,
                 fontSize = 14.sp,
                 lineHeight = 19.sp
             )

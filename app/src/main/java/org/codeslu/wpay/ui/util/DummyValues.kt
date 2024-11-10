@@ -62,17 +62,17 @@ object DummyValues {
     val pieChartData = PieChartData(
         listOf(
             PieChartEntry(
-                value = 150.0,
+                value = 100.0,
                 color = primaryContainerLight,
                 label = "Shopping"
             ),
             PieChartEntry(
-                value = 300.0,
+                value = 72.0,
                 color = orange1Light,
                 label = "Coffee"
             ),
             PieChartEntry(
-                value = 150.0,
+                value = 140.0,
                 color = secondaryContainerLight,
                 label = "Transportation"
             ),
@@ -81,13 +81,13 @@ object DummyValues {
     val recentExpenses = listOf(
         Expense(
             title = "Starbucks Coffee",
-            value = 156.0,
+            amount = 156.0,
             iconRes = R.drawable.ic_starbucks,
             backgroundColor = onPrimaryContainerLight,
         ),
         Expense(
             title = "Netflix Subscription",
-            value = 87.0,
+            amount = 87.0,
             iconRes = R.drawable.ic_netflix,
             backgroundColor = Color(0xFF030319),
         ),

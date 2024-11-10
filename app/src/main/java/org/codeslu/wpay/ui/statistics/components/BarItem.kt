@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.notificationHeaderColor
 import org.codeslu.wpay.ui.theme.orange1Light
 import org.codeslu.wpay.ui.theme.outlineLight
 import org.codeslu.wpay.ui.theme.primaryContainerLight
@@ -61,7 +62,7 @@ fun BarItem(
         Text(
             text = chartEntryTitle,
             style = MaterialTheme.typography.bodySmall,
-            color = outlineLight,
+            color = notificationHeaderColor,
             fontSize = 14.sp,
             lineHeight = 19.sp
         )

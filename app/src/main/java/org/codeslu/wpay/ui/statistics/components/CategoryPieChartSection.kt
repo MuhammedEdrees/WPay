@@ -24,6 +24,7 @@ import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.PieChartData
 import org.codeslu.wpay.data.model.PieChartEntry
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.notificationHeaderColor
 import org.codeslu.wpay.ui.theme.orange1Light
 import org.codeslu.wpay.ui.theme.outlineLight
 import org.codeslu.wpay.ui.theme.primaryContainerLight
@@ -86,7 +87,7 @@ private fun CategoryChartHeader(lastWeekExpenses: Double) {
                 style = MaterialTheme.typography.bodyMedium,
                 fontSize = 16.sp,
                 lineHeight = 22.sp,
-                color = outlineLight.copy(alpha = 0.7f)
+                color = notificationHeaderColor
             )
         }
         Text(
@@ -105,7 +106,7 @@ private fun CategoryPieChartSectionPreview() {
     WPayTheme {
         CategoryPieChartSection(
             modifier = Modifier.padding(16.dp),
-            lastWeekExpenses = 600.0,
+            lastWeekExpenses = 312.0,
             chartData = pieChartData
         )
     }

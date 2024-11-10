@@ -43,4 +43,11 @@
     <string name="please_input_your_password_before_continuing_payment">Please input your password before continuing payment</string>
     <string name="password">Password</string>
     <string name="must_be_at_least_8_characters">Must be at least 8 characters.</string>
+    <string name="payment_receipt">Payment Receipt</string>
+    <string name="payment_success">Payment Success</string>
+    <string name="your_payment_for_has_been_successfully_done">Your payment for %1$s has been successfully done</string>
+    <string name="total_payment">Total Payment</string>
+    <string name="payment_for">Payment for</string>
+    <string name="done">Done</string>
+    <string name="pay_again">Pay again</string>
 </resources>
