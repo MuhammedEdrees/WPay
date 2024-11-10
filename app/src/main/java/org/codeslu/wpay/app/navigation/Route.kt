@@ -1,7 +1,6 @@
 package org.codeslu.wpay.app.navigation
 
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.Serializer
 
 sealed interface Route {
     @Serializable
@@ -14,4 +13,6 @@ sealed interface Route {
     data object ProfileScreenRoute : Route
     @Serializable
     data object ScanToPayScreenRoute : Route
+    @Serializable
+    data object SummaryTransactionScreenRoute : Route
 }

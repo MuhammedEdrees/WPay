@@ -4,6 +4,7 @@ import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -22,7 +23,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import org.codeslu.wpay.R
+import org.codeslu.wpay.ui.theme.backgroundLight
 import org.codeslu.wpay.ui.theme.orange1Light
+import org.codeslu.wpay.ui.theme.surfaceContainerLight
+import org.codeslu.wpay.ui.theme.surfaceLight
 
 @Composable
 fun BottomNavigationBar(
@@ -39,10 +43,17 @@ fun BottomNavigationBar(
         BottomAppBar(
             modifier = modifier
                 .clip(RoundedCornerShape(16.dp)),
+            containerColor = surfaceLight.copy(alpha = 0.9f),
             floatingActionButton = {
                 FloatingActionButton(
                     modifier = Modifier.size(56.dp),
-                    onClick = { onNavigate(Route.ScanToPayScreenRoute) },
+                    onClick = {
+                        val route = if(currentRoute == Route.ScanToPayScreenRoute::class.qualifiedName) {
+                            Route.SummaryTransactionScreenRoute
+                        } else {
+                            Route.ScanToPayScreenRoute
+                        }
+                        onNavigate(route) },
                     shape = CircleShape,
                     containerColor = orange1Light
                 ) {
