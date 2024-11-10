@@ -44,7 +44,8 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun StatisticsScreen(
     modifier: Modifier = Modifier,
-    viewModel: StatisticsViewModel = koinViewModel()
+    viewModel: StatisticsViewModel = koinViewModel(),
+    onBackClicked: () -> Unit = {}
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     StatisticsScreenContent(
@@ -54,7 +55,13 @@ fun StatisticsScreen(
         selectedRange = state.selectedChartRange,
         barChartData = state.selectedBarChartData,
         pieChartData = state.pieChartData,
-        recentExpenses = state.recentExpenses
+        recentExpenses = state.recentExpenses,
+        onAction = { action ->
+            when (action) {
+                is StatisticsUiAction.OnBackClicked -> onBackClicked()
+                else -> Unit
+            }
+        }
     )
 }
 

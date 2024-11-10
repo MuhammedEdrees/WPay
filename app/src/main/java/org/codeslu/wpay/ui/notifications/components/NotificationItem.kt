@@ -15,6 +15,8 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -83,7 +85,7 @@ fun NotificationItem(
                     Box(
                         modifier = Modifier
                             .size(10.dp)
-                            .background(color = surfaceDimLight, shape = CircleShape)
+                            .background(color = unreadContainerColor, shape = CircleShape)
                             .padding(2.dp)
                             .background(color = orange1Light, shape = CircleShape)
                             .align(Alignment.TopEnd) // Position the badge at the top end of the icon
@@ -126,8 +128,9 @@ fun NotificationItem(
                     )
                 }
                 if (hasAction) {
-                    TextButton(
-                        modifier = Modifier.height(17.dp),
+                    Button(
+                        colors = ButtonDefaults.buttonColors(containerColor = Color.Transparent, contentColor = primaryContainerLight),
+                        modifier = Modifier.widthIn(min = 1.dp).height(17.dp),
                         onClick = { onActionClick() },
                         contentPadding = PaddingValues(0.dp)
                     ) {
@@ -152,13 +155,12 @@ fun NotificationItem(
 @Composable
 private fun LabelItem(label: String) {
     Surface(
-        modifier = Modifier.size(width = 60.dp, height = 24.dp),
         shape = RoundedCornerShape(8.dp),
         color = primaryContainerLight.copy(alpha = 0.08f),
         contentColor = primaryContainerLight
     ) {
         Box(
-            modifier = Modifier.fillMaxSize()
+            modifier = Modifier.padding(vertical = 4.dp, horizontal = 8.dp)
         ) {
             Text(
                 text = label,
