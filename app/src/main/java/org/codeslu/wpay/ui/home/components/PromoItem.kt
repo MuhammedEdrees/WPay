@@ -25,7 +25,13 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.onBackgroundLight
+import org.codeslu.wpay.ui.theme.onPrimaryLight
+import org.codeslu.wpay.ui.theme.onSecondaryContainerLight
 import org.codeslu.wpay.ui.theme.orange1Light
+import org.codeslu.wpay.ui.theme.primaryContainerLight
+import org.codeslu.wpay.ui.theme.secondaryContainerLight
+import org.codeslu.wpay.ui.theme.tertiaryContainerLight
 
 @Composable
 fun PromoItem(
@@ -39,7 +45,8 @@ fun PromoItem(
         modifier = modifier
             .size(width = 318.dp, height = 170.dp),
         shape = MaterialTheme.shapes.large,
-        color = if (hasDiscount) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.tertiary,
+        color = if (hasDiscount) secondaryContainerLight else tertiaryContainerLight,
+        contentColor = if(hasDiscount) onPrimaryLight else onBackgroundLight
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
@@ -107,8 +114,8 @@ private fun PromoItemBackground(
 
 @Composable
 private fun BoxScope.PromoWithDiscountBackground() {
-    val rectangleColor = MaterialTheme.colorScheme.primary
-    val circleColor = MaterialTheme.colorScheme.tertiary
+    val rectangleColor = primaryContainerLight
+    val circleColor = tertiaryContainerLight
     Canvas(
         modifier = Modifier
             .fillMaxSize()
@@ -132,9 +139,9 @@ private fun BoxScope.PromoWithDiscountBackground() {
 
 @Composable
 private fun BoxScope.PromoWithoutDiscountBackground() {
-    val topRectangleColor = MaterialTheme.colorScheme.secondary
-    val bottomRectangleColor = MaterialTheme.colorScheme.primary
-    val arcColor = MaterialTheme.colorScheme.onPrimary
+    val topRectangleColor = secondaryContainerLight
+    val bottomRectangleColor = primaryContainerLight
+    val arcColor = onPrimaryLight
     val capsuleColor = orange1Light
     Canvas(
         modifier = Modifier

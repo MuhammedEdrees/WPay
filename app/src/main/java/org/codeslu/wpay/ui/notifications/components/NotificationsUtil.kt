@@ -37,7 +37,7 @@ fun getColorForNotification(type: String): Color {
         tertiaryContainerLight,
         orange1Light,
     )
-    return colors.random().copy(alpha = 0.5f)
+    return colors.random().copy(alpha = 0.7f)
 }
 
 @Composable

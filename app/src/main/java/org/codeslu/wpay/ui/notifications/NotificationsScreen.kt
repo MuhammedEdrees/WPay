@@ -30,12 +30,19 @@ import org.koin.androidx.compose.koinViewModel
 @Composable
 fun NotificationsScreen(
     modifier: Modifier = Modifier,
-    viewModel: NotificationsViewModel = koinViewModel()
+    viewModel: NotificationsViewModel = koinViewModel(),
+    onBackClicked: () -> Unit = {},
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     NotificationsScreenContent(
         groupedNotifications = state.groupedNotifications,
-        hasUnread = state.hasUnread
+        hasUnread = state.hasUnread,
+        onAction = { action ->
+            when (action) {
+                is NotificationsUiAction.OnBackClicked -> onBackClicked()
+                else -> Unit
+            }
+        }
     )
 }
 
