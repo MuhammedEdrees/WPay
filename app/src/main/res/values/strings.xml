@@ -32,4 +32,7 @@
     <string name="category_chart">Category Chart</string>
     <string name="last_7_days_expenses">Last 7 days expenses</string>
     <string name="recent_expenses">Recent Expenses</string>
+    <string name="scan_to_pay">Scan to Pay</string>
+    <string name="hold_the_code_inside_the_frame_it_will_be_scanned_automatically">Hold the code inside the frame, it will be scanned automatically</string>
+    <string name="payment_with_qr_code">Payment with QR Code</string>
 </resources>
