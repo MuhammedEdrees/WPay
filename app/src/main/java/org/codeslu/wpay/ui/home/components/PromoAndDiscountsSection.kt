@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -23,6 +24,7 @@ import androidx.compose.ui.unit.sp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.Promo
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.primaryContainerLight
 
 @Composable
 fun PromoAndDiscountsSection(
@@ -39,7 +41,9 @@ fun PromoAndDiscountsSection(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ){
@@ -52,7 +56,8 @@ fun PromoAndDiscountsSection(
             )
             TextButton(
                 onClick = { onSeeMoreClicked() },
-                contentPadding = PaddingValues(0.dp)
+                contentPadding = PaddingValues(0.dp),
+                colors = ButtonDefaults.textButtonColors(contentColor = primaryContainerLight)
             ) {
                 Text(
                     text = stringResource(R.string.see_more),

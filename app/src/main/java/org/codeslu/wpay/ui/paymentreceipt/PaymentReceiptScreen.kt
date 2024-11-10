@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
@@ -33,16 +32,14 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.Expense
 import org.codeslu.wpay.ui.components.TransparentCenterAlignedTopAppBar
-import org.codeslu.wpay.ui.confirmpassword.ConfirmPasswordUiAction
 import org.codeslu.wpay.ui.paymentreceipt.components.DashedDivider
 import org.codeslu.wpay.ui.paymentreceipt.components.PaymentForSection
 import org.codeslu.wpay.ui.paymentreceipt.components.PaymentSuccessSection
 import org.codeslu.wpay.ui.paymentreceipt.components.SuccessIconSection
 import org.codeslu.wpay.ui.paymentreceipt.components.TotalPaymentSection
 import org.codeslu.wpay.ui.theme.WPayTheme
-import org.codeslu.wpay.ui.theme.greenBackgroundLight
-import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
+import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.codeslu.wpay.ui.theme.onPrimaryLight
 import org.codeslu.wpay.ui.theme.primaryContainerLight
 import org.codeslu.wpay.ui.util.DummyValues
@@ -199,7 +196,7 @@ private fun PaymentReceiptScreenContentPreview() {
         PaymentReceiptScreenContent(
             modifier = Modifier
                 .fillMaxSize()
-                .background(greenBackgroundLight),
+                .background(onPrimaryContainerLight),
             expense = DummyValues.recentExpenses.first()
         ) {
 

@@ -13,7 +13,8 @@ import androidx.compose.ui.res.painterResource
 import org.codeslu.wpay.R
 import org.codeslu.wpay.app.navigation.Route
 import org.codeslu.wpay.ui.theme.backgroundLight
-import org.codeslu.wpay.ui.theme.greenBackgroundLight
+import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
+import org.codeslu.wpay.ui.theme.onTertiaryLight
 
 @Composable
 fun BackgroundContainer(
@@ -32,24 +33,24 @@ private fun Background(currentRoute: String) {
     when (currentRoute) {
         in listOf(Route.NotificationsScreenRoute, Route.SummaryTransactionScreenRoute).map { it::class.qualifiedName.orEmpty() } -> {
             StaticColorWithHeaderBackground(
-                color = greenBackgroundLight,
+                color = onPrimaryContainerLight,
                 headerRes = R.drawable.bg_mask_group1
             )
         }
 
         Route.ScanToPayScreenRoute::class.qualifiedName.orEmpty() -> {
-            StaticColorBackground(color = greenBackgroundLight)
+            StaticColorBackground(color = onPrimaryContainerLight)
         }
 
         Route.PaymentReceiptScreenRoute::class.qualifiedName.orEmpty() -> {
             StaticColorWithHeaderBackground(
-                color = greenBackgroundLight,
+                color = onPrimaryContainerLight,
                 headerRes = R.drawable.bg_ribbons
             )
         }
 
         else -> {
-            StaticColorBackground(color = backgroundLight)
+            StaticColorBackground(color = onTertiaryLight)
         }
     }
 }

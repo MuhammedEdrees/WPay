@@ -15,6 +15,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import org.codeslu.wpay.R
+import org.codeslu.wpay.ui.theme.onPrimaryLight
+import org.codeslu.wpay.ui.theme.primaryContainerLight
 
 @Composable
 fun BalanceServicesSection(
@@ -28,8 +30,8 @@ fun BalanceServicesSection(
             .fillMaxWidth()
             .height(84.dp),
         shape = RoundedCornerShape(16.dp),
-        color = MaterialTheme.colorScheme.primary,
-        contentColor = MaterialTheme.colorScheme.onPrimary
+        color = primaryContainerLight,
+        contentColor = onPrimaryLight
     ) {
         Row(
             modifier = Modifier.fillMaxSize(),

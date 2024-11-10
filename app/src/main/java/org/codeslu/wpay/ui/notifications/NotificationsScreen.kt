@@ -35,7 +35,7 @@ import org.codeslu.wpay.ui.notifications.components.NotificationsList
 import org.codeslu.wpay.ui.notifications.components.OutlinedTopBarIcon
 import org.codeslu.wpay.ui.components.TransparentCenterAlignedTopAppBar
 import org.codeslu.wpay.ui.theme.WPayTheme
-import org.codeslu.wpay.ui.theme.greenBackgroundLight
+import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
 import org.codeslu.wpay.ui.theme.onPrimaryLight
 import org.koin.androidx.compose.koinViewModel
 
@@ -192,7 +192,7 @@ private fun NotificationsScreenContentPreview() {
             ),
         )
         NotificationsScreenContent(
-            modifier = Modifier.fillMaxSize().background(greenBackgroundLight),
+            modifier = Modifier.fillMaxSize().background(onPrimaryContainerLight),
             groupedNotifications = groups,
             hasUnread = true
         )

@@ -132,8 +132,9 @@ private fun HomeScreenContent(
         Column(
             modifier = Modifier
                 .fillMaxSize()
+                .verticalScroll(rememberScrollState())
                 .padding(paddingValues)
-                .verticalScroll(rememberScrollState()),
+                .padding(bottom = 22.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             UserBalanceSection(

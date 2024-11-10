@@ -1,11 +1,14 @@
 package org.codeslu.wpay.ui.statistics
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
@@ -51,6 +54,7 @@ fun StatisticsScreen(
 ) {
     val state by viewModel.uiState.collectAsStateWithLifecycle()
     StatisticsScreenContent(
+        modifier = modifier,
         totalIncome = state.totalIncome,
         totalExpenses = state.totalExpenses,
         lastWeekExpenses = state.lastWeekExpenses,
@@ -81,7 +85,7 @@ private fun StatisticsScreenContent(
     recentExpenses: List<Expense>
 ) {
     Scaffold(
-        modifier = modifier.fillMaxSize(),
+        modifier = modifier,
         containerColor = Color.Transparent,
         contentColor = onBackgroundLight,
         topBar = {
@@ -118,12 +122,14 @@ private fun StatisticsScreenContent(
             )
         }
     ) { paddingValues ->
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
+                .verticalScroll(rememberScrollState())
                 .padding(16.dp)
-                .verticalScroll(rememberScrollState()),
+                .padding(bottom= 16.dp),
             verticalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             IncomeAndExpensesCard(totalIncome = totalIncome, totalExpenses = totalExpenses)
@@ -137,7 +143,8 @@ private fun StatisticsScreenContent(
                 lastWeekExpenses = lastWeekExpenses,
                 chartData = pieChartData
             )
-            RecentExpensesSection(recentExpenses = recentExpenses)
+            RecentExpensesSection(
+                recentExpenses = recentExpenses)
         }
     }
 }
