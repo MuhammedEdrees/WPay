@@ -34,6 +34,7 @@ import org.codeslu.wpay.ui.home.components.PromoAndDiscountsSection
 import org.codeslu.wpay.ui.home.components.UserBalanceSection
 import org.codeslu.wpay.ui.notifications.components.OutlinedTopBarIcon
 import org.codeslu.wpay.ui.theme.WPayTheme
+import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -100,6 +101,8 @@ private fun HomeScreenContent(
     }
     Scaffold(
         modifier = modifier,
+        containerColor = Color.Transparent,
+        contentColor = onBackgroundLight,
         snackbarHost = { SnackbarHost(hostState = snackbarHostState) },
         topBar = {
             TopAppBar(

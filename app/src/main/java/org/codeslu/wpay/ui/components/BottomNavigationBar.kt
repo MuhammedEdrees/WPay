@@ -4,6 +4,11 @@ import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
+import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.WindowInsetsSides
+import androidx.compose.foundation.layout.heightIn
+import androidx.compose.foundation.layout.ime
+import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,6 +28,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import org.codeslu.wpay.R
 import org.codeslu.wpay.app.navigation.Route
+import org.codeslu.wpay.ui.theme.backgroundLight
 import org.codeslu.wpay.ui.theme.orange1Light
 import org.codeslu.wpay.ui.theme.surfaceLight
 
@@ -40,8 +46,10 @@ fun BottomNavigationBar(
     ) {
         BottomAppBar(
             modifier = modifier
-                .clip(RoundedCornerShape(16.dp)),
-            containerColor = surfaceLight.copy(alpha = 0.9f),
+                .heightIn(max = 70.dp),
+            containerColor = surfaceLight,
+            tonalElevation = 0.dp,
+            windowInsets = WindowInsets.ime.only(WindowInsetsSides.Bottom),
             floatingActionButton = {
                 FloatingActionButton(
                     modifier = Modifier.size(56.dp),

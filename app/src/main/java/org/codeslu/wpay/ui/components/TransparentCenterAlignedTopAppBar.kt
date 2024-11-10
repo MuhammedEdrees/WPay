@@ -1,6 +1,7 @@
 package org.codeslu.wpay.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -12,18 +13,21 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun TransparentCenterAlignedTopAppBar(
     title: @Composable () -> Unit,
-    navigationIcon: @Composable () -> Unit,
-    actions: @Composable () -> Unit
+    navigationIcon: @Composable () -> Unit = {},
+    actions: @Composable () -> Unit = {}
 ) {
-    Row(
+    Box(
         modifier = Modifier
             .fillMaxWidth()
             .padding(16.dp),
-        verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.SpaceBetween
+        contentAlignment = Alignment.Center
     ) {
-        navigationIcon()
+        Box(modifier = Modifier.align(Alignment.CenterStart)){
+            navigationIcon()
+        }
         title()
-        actions()
+        Box(modifier = Modifier.align(Alignment.CenterEnd)){
+            actions()
+        }
     }
 }

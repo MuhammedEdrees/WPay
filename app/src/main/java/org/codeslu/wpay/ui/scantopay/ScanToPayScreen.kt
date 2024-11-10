@@ -86,7 +86,7 @@ private fun ScanToPayScreenContent(
     ) { paddingValues ->
         Box(
             modifier = Modifier
-                .padding(paddingValues)
+                .padding(top = paddingValues.calculateTopPadding())
                 .fillMaxSize()
 
         ) {

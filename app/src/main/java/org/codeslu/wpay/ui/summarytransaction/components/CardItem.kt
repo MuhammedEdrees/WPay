@@ -22,11 +22,9 @@ import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.Card
 import org.codeslu.wpay.ui.theme.WPayTheme
 import org.codeslu.wpay.ui.theme.backgroundLight
-import org.codeslu.wpay.ui.theme.cardTitleLight
 import org.codeslu.wpay.ui.theme.notificationHeaderColor
+import org.codeslu.wpay.ui.theme.onBackgroundLight
 import org.codeslu.wpay.ui.theme.segmentedBarBackground
-import org.codeslu.wpay.ui.theme.surfaceDimLight
-import org.codeslu.wpay.ui.theme.surfaceLight
 import org.codeslu.wpay.ui.util.DummyValues
 
 @Composable
@@ -38,7 +36,7 @@ fun CardItem(
         modifier = modifier.clip(RoundedCornerShape(16.dp)),
         colors = ListItemDefaults.colors(
             containerColor = segmentedBarBackground,
-            headlineColor = cardTitleLight,
+            headlineColor = onBackgroundLight,
             supportingColor = notificationHeaderColor,
         ),
         leadingContent = {
