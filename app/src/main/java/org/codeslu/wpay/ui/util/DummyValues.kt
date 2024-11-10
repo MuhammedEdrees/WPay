@@ -1,17 +1,22 @@
 package org.codeslu.wpay.ui.util
 
 import androidx.compose.ui.graphics.Color
+import kotlinx.datetime.LocalDateTime
 import org.codeslu.wpay.R
 import org.codeslu.wpay.data.model.BarChartData
+import org.codeslu.wpay.data.model.Card
 import org.codeslu.wpay.data.model.ChartDataEntry
 import org.codeslu.wpay.data.model.Expense
 import org.codeslu.wpay.data.model.PieChartData
 import org.codeslu.wpay.data.model.PieChartEntry
+import org.codeslu.wpay.data.model.Transaction
 import org.codeslu.wpay.ui.statistics.ChartRange
 import org.codeslu.wpay.ui.theme.onPrimaryContainerLight
 import org.codeslu.wpay.ui.theme.orange1Light
 import org.codeslu.wpay.ui.theme.primaryContainerLight
 import org.codeslu.wpay.ui.theme.secondaryContainerLight
+import org.codeslu.wpay.ui.theme.surfaceContainerHighLight
+import org.codeslu.wpay.ui.util.LocalDateTimeUtil.now
 
 object DummyValues {
     val barChartData = BarChartData(
@@ -86,5 +91,18 @@ object DummyValues {
             iconRes = R.drawable.ic_netflix,
             backgroundColor = Color(0xFF030319),
         ),
+    )
+    val transaction = Transaction(
+        title = "Starbucks Coffee",
+        iconRes = R.drawable.ic_starbucks,
+        iconBackgroundColor = surfaceContainerHighLight,
+        date = LocalDateTime.now(),
+        amount = 15.0,
+        paymentFee = 2.0
+    )
+    val card = Card(
+        title = "Wally Virtual Card",
+        iconRes = R.drawable.ic_logo,
+        number = "0318-1608-2105"
     )
 }

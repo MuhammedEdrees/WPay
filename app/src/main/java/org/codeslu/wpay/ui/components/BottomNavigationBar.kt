@@ -1,10 +1,9 @@
-package org.codeslu.wpay.app.navigation
+package org.codeslu.wpay.ui.components
 
 import androidx.annotation.DrawableRes
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -23,9 +22,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import org.codeslu.wpay.R
-import org.codeslu.wpay.ui.theme.backgroundLight
+import org.codeslu.wpay.app.navigation.Route
 import org.codeslu.wpay.ui.theme.orange1Light
-import org.codeslu.wpay.ui.theme.surfaceContainerLight
 import org.codeslu.wpay.ui.theme.surfaceLight
 
 @Composable
